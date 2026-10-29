@@ -1,0 +1,998 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Татьяна Рапанович</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@200..800&family=Lora:ital,wght@1,400;1,500&display=swap">
+<style>
+/* Layout: quiet light page on a faint 12-column grid. Home = positioning line + case cards right away.
+   Case = sticky left rail (contents + meta), content column on the right. One accent: italic serif in pink. */
+:root{
+  --bg:#FAFAF9; --surface:#FFFFFF; --ink:#17181A; --muted:#646770; --line:#E4E4E1; --grid:rgba(23,24,26,.045);
+  --accent:#CC3366; --accent-soft:#FBE7EE; --accent-ink:#FFFFFF; --chip:#F0F0EE; --cover:#ECEFF6;
+  --f-sans:"Onest","Segoe UI",system-ui,sans-serif;
+  --f-serif:"Lora",Georgia,"Times New Roman",serif;
+  /* two families only: Onest for everything, Lora italic as the accent. Former mono labels now use Onest caps + tabular figures */
+  --f-mono:var(--f-sans);
+  --t-xs:.75rem; --t-s:.875rem; --t-m:1rem; --t-l:1.25rem; --t-xl:1.75rem; --t-2xl:2.5rem; --t-hero:clamp(2.4rem,6.2vw,4.6rem);
+  --wrap:1200px; --text:66ch;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111214; --surface:#18191C; --ink:#EDEDEA; --muted:#9C9EA6; --line:#2A2C30; --grid:rgba(237,237,234,.04);
+  --accent:#F27AA0; --accent-soft:#3A1E29; --accent-ink:#151012; --chip:#222428; --cover:#1D2230; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111214; --surface:#18191C; --ink:#EDEDEA; --muted:#9C9EA6; --line:#2A2C30; --grid:rgba(237,237,234,.04);
+  --accent:#F27AA0; --accent-soft:#3A1E29; --accent-ink:#151012; --chip:#222428; --cover:#1D2230; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-sans);font-size:var(--t-m);line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin-inline:auto;position:relative}
+h1,h2,h3{font-weight:500;line-height:1.12;letter-spacing:-.02em;text-wrap:balance;margin:0}
+p{margin:0}
+.it{font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--accent);letter-spacing:-.01em}
+.label{font-family:var(--f-mono);font-size:var(--t-xs);font-weight:500;letter-spacing:.08em;font-variant-numeric:tabular-nums;text-transform:uppercase;color:var(--muted)}
+.chip{display:inline-block;font-size:var(--t-xs);background:var(--chip);color:var(--muted);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:inherit;font-size:var(--t-s);font-weight:500;cursor:pointer;
+  padding:10px 18px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+
+/* progress bar (case only) */
+.progress{position:fixed;left:0;right:0;top:0;height:3px;z-index:20;pointer-events:none}
+.progress i{display:block;height:100%;width:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0)}
+
+/* header: floating pill menu */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:16;background:var(--bg)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;display:flex;justify-content:center;align-items:center;gap:8px;padding-block:14px;pointer-events:none}
+.bar>*{pointer-events:auto}
+.mono,.mailbtn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;text-decoration:none;flex:0 0 auto}
+.mono{background:var(--surface);border:1px solid var(--line);font-weight:600;font-size:var(--t-s);letter-spacing:.02em}
+.mailbtn{background:var(--accent);color:var(--accent-ink)}
+.mailbtn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.pill{display:flex;gap:2px;align-items:center;background:color-mix(in srgb,var(--surface) 88%,transparent);border:1px solid var(--line);border-radius:999px;padding:4px;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.pill a{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;text-decoration:none;font-size:var(--t-s);color:var(--ink)}
+.pill a:hover{background:var(--chip)}
+.pill svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.mono:hover{border-color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){.mailbtn{transition:transform .2s}.mailbtn:hover{transform:rotate(-8deg) scale(1.05)}}
+
+/* hero */
+.hero{position:relative;padding-block:72px 64px;display:grid;justify-items:center;text-align:center;gap:22px}
+.hero h1{font-size:var(--t-hero);font-weight:420;line-height:1.04;letter-spacing:-.035em}
+.hero h1 .wave span{transition:font-variation-settings .25s,font-weight .25s;display:inline-block}
+.hero h1 .it{display:block;font-size:1.02em}
+.hero .side{display:grid;gap:20px;justify-items:center;max-width:52ch}
+.hero .side p{color:var(--muted)}
+.hero .acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.skills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding-top:4px}
+.hello{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:var(--t-s)}
+.eyes{display:flex;gap:6px}
+.eye{width:30px;height:38px;border-radius:50% 50% 46% 46%;background:var(--ink);position:relative;overflow:hidden}
+.eye i{position:absolute;left:50%;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;border-radius:50%;background:var(--bg)}
+@media (prefers-reduced-motion:no-preference){.eye{transition:transform .12s}.eye.blink{transform:scaleY(.1)}}
+
+/* cases */
+.cases{padding-block:8px 72px}
+.cases-head{display:flex;justify-content:space-between;align-items:baseline;padding-block:20px;border-top:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 28px}
+.card{display:grid;gap:14px;text-decoration:none;color:inherit}
+.cover{position:relative;aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:var(--cover);max-width:100%}
+.cover img{width:100%;height:100%;object-fit:cover;display:block}
+.cover .hover{position:absolute;inset:auto 14px 14px auto;display:inline-flex;gap:6px;align-items:center;font-size:var(--t-s);font-weight:500;
+  background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:999px;opacity:0;transform:translateY(6px);transition:opacity .2s,transform .2s}
+.card:hover .hover,.card:focus-visible .hover{opacity:1;transform:none}
+.card:hover .cover img{transform:scale(1.015)}
+.cover img{transition:transform .5s}
+.card .info{display:block}
+.card h3{font-size:var(--t-l);font-weight:500;letter-spacing:-.01em}
+.card p{color:var(--muted);font-size:var(--t-s);margin-top:10px;max-width:52ch}
+.card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+@media (hover:none){.cover .hover{opacity:1;transform:none}}
+
+/* placeholder covers for cases in progress */
+.ph{position:absolute;inset:0;display:grid;place-items:center;padding:8%}
+.ph .ui{width:100%;height:100%;border-radius:10px;background:var(--surface);display:grid;grid-template-columns:22% 1fr;gap:6%;padding:5%;filter:blur(5px);opacity:.9}
+.ph .ui i{display:block;border-radius:6px;background:var(--chip)}
+.ph .ui .col{display:grid;gap:8%;align-content:start}
+.ph .ui .col i{height:10px}
+.ph .ui .main{display:grid;grid-template-rows:auto 1fr;gap:10%}
+.ph .ui .main .row{display:grid;grid-template-columns:repeat(3,1fr);gap:6%}
+.ph .ui .main .row i{height:46px}
+.ph .ui .main .tbl{display:grid;gap:10px;align-content:start}
+.ph .ui .main .tbl i{height:12px}
+.ph .phone{width:34%;aspect-ratio:9/19;border-radius:22px;background:var(--surface);padding:10% 8%;display:grid;gap:8%;align-content:start;filter:blur(5px)}
+.ph .phone i{display:block;height:14px;border-radius:6px;background:var(--chip)}
+.ph .phone i.big{height:70px}
+.badge{position:absolute;left:14px;top:14px;font-size:var(--t-xs);font-weight:500;background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+.why{position:absolute;inset:auto 14px 14px 14px;font-size:var(--t-s);background:var(--surface);color:var(--ink);border:1px solid var(--line);
+  border-radius:12px;padding:10px 14px;opacity:0;transform:translateY(6px);transition:opacity .2s,transform .2s;line-height:1.45}
+.card:hover .why,.card:focus-visible .why{opacity:1;transform:none}
+@media (hover:none){.why{opacity:1;transform:none}}
+
+/* about / process / footer */
+.sec-home{padding-block:72px;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:32px 48px}
+.sec-home h2{font-size:var(--t-2xl);font-weight:420}
+.about-body{display:grid;gap:18px;max-width:var(--text)}
+.about-body p{color:var(--muted)}
+.about-body p strong{color:var(--ink);font-weight:500}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;list-style:none;padding:0;margin:0}
+.steps li{display:grid;gap:8px;align-content:start;border-top:1px solid var(--ink);padding-top:14px}
+.steps .n{font-family:var(--f-mono);font-size:var(--t-xs);font-weight:500;font-variant-numeric:tabular-nums;color:var(--accent)}
+.steps b{font-weight:500}
+.steps p{color:var(--muted);font-size:var(--t-s)}
+.foot{padding-block:80px 56px;border-top:1px solid var(--line);display:grid;gap:28px}
+.foot h2{font-size:var(--t-hero);font-weight:420;letter-spacing:-.035em}
+.foot .links{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.foot .mail{font-size:var(--t-l);user-select:all;margin-right:6px}
+.foot .todo{font-size:var(--t-s);color:var(--muted);border:1px dashed var(--line);padding:9px 14px;border-radius:999px}
+.foot .meta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:var(--t-s);padding-top:24px;border-top:1px solid var(--line)}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* case page */
+.case-head{padding-block:48px 40px;display:grid;gap:20px;max-width:900px}
+.back{font-size:var(--t-s);color:var(--muted);text-decoration:none}
+.back:hover{color:var(--ink)}
+.case-head h1{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:440;letter-spacing:-.03em}
+.case-head .lead{font-size:var(--t-l);color:var(--muted);max-width:var(--text);line-height:1.5}
+.meta4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding-block:20px;border-block:1px solid var(--line)}
+.meta4 div{display:grid;gap:4px;align-content:start}
+.figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.figs div{display:grid;gap:2px;align-content:start}
+.figs b{font-size:var(--t-2xl);font-weight:420;letter-spacing:-.03em;line-height:1.1}
+.figs span{color:var(--muted);font-size:var(--t-s)}
+.nda{display:flex;gap:12px;align-items:flex-start;background:var(--accent-soft);border-radius:12px;padding:14px 16px;font-size:var(--t-s);max-width:var(--text)}
+.nda b{font-weight:600}
+
+.case{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:56px;padding-bottom:40px}
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:start;display:grid;gap:4px}
+.rail .label{margin-bottom:8px}
+.rail a{font-size:var(--t-s);color:var(--muted);text-decoration:none;padding:6px 0 6px 14px;border-left:2px solid var(--line)}
+.rail a:hover{color:var(--ink)}
+.rail a.on{color:var(--ink);border-left-color:var(--accent);font-weight:500}
+.content{min-width:0;display:grid;gap:0}
+.block{padding-block:48px;border-top:1px solid var(--line);display:grid;gap:20px;scroll-margin-top:24px}
+.block:first-child{border-top:0;padding-top:0}
+.block h2{font-size:var(--t-xl);font-weight:500}
+.block > p,.block .prose{max-width:var(--text);color:var(--muted)}
+.block .prose strong,.block > p strong{color:var(--ink);font-weight:500}
+.block h3{font-size:var(--t-l);font-weight:500}
+
+.ba{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:720px}
+.shot{margin:0;display:grid;gap:10px;align-content:start;position:relative}
+.shot img{display:block;width:100%;height:auto;border-radius:20px;border:1px solid var(--line);background:var(--cover)}
+.shot figcaption{font-size:var(--t-s);color:var(--muted);line-height:1.45}
+.shot .chip{justify-self:start}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.blur-note{position:absolute;right:10px;top:10px;font-size:var(--t-xs);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 11px;min-height:28px;color:var(--muted);cursor:help}
+.blur-note:hover::after,.blur-note:focus::after{content:attr(data-tip);position:absolute;right:0;top:calc(100% + 6px);width:220px;background:var(--ink);color:var(--bg);font-size:var(--t-xs);line-height:1.45;padding:8px 10px;border-radius:8px;z-index:3}
+
+.audit{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.audit table{border-collapse:collapse;width:100%;min-width:600px;font-size:var(--t-s)}
+.audit th{font-family:var(--f-mono);font-size:var(--t-xs);font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;padding:12px 16px;border-bottom:1px solid var(--line)}
+.audit td{padding:13px 16px;vertical-align:top;border-bottom:1px solid var(--line)}
+.audit tr:last-child td{border-bottom:0}
+.plat{font-family:var(--f-mono);font-size:var(--t-xs);font-weight:500;letter-spacing:.04em;color:var(--accent);margin-right:6px;white-space:nowrap}
+
+.dec{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,280px);gap:36px;align-items:start;padding-block:28px;border-top:1px dashed var(--line)}
+.dec:first-of-type{border-top:0;padding-top:4px}
+.dec .txt{display:grid;gap:12px}
+.dec .txt p{color:var(--muted)}
+.dec ul{margin:0;padding-left:1.1em;display:grid;gap:6px;color:var(--muted);font-size:var(--t-s)}
+.dec .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dec .shot img{border-radius:16px}
+
+.wshot{margin:0;display:grid;gap:10px;position:relative}
+.wshot img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);background:var(--cover)}
+.wshot figcaption{font-size:var(--t-s);color:var(--muted);line-height:1.45;max-width:var(--text)}
+.mpair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:620px}
+.mpair .shot img{border-radius:10px}
+.carousel{display:flex;gap:16px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x proximity}
+.carousel .shot{flex:0 0 auto;width:min(230px,64vw);scroll-snap-align:start}
+.carousel .shot img{aspect-ratio:402/874;object-fit:cover;object-position:top}
+
+.results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.res{border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:6px;align-content:start;background:var(--surface)}
+.res b{font-weight:500}
+.res p{color:var(--muted);font-size:var(--t-s)}
+
+.next{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;padding-block:56px;border-top:1px solid var(--line);align-items:center}
+.next h2{font-size:var(--t-2xl);font-weight:420}
+.next .card .cover{aspect-ratio:16/9}
+
+@media (max-width:900px){
+  .hero{padding-block:44px 44px}
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .sec-home{grid-template-columns:minmax(0,1fr);padding-block:56px}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .case{grid-template-columns:minmax(0,1fr);gap:0}
+  .rail{display:none}
+  .meta4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dec{grid-template-columns:minmax(0,1fr);gap:18px}
+  .dec .shot,.dec .pair{max-width:440px}
+  .results{grid-template-columns:minmax(0,1fr)}
+  .next{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:520px){
+  .figs{grid-template-columns:minmax(0,1fr)}
+  .ba{grid-template-columns:minmax(0,1fr)}.ba .shot{max-width:320px}
+  .mpair{grid-template-columns:minmax(0,1fr)}.mpair .shot{max-width:320px}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .pill a span{display:none}.pill a{padding:9px 11px}
+}
+@media (prefers-reduced-motion:reduce){.cover img,.cover .hover,.why{transition:none}.hero h1 .wave span{transition:none}}
+</style>
+
+<div class="progress" id="progress" hidden><i></i></div>
+
+<div class="wrap">
+  <header class="bar">
+    <a class="mono" href="#" aria-label="Татьяна Рапанович — на главную">ТР</a>
+    <nav class="pill" aria-label="Разделы">
+      <a href="#work"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Кейсы</span></a>
+      <a href="#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4.5 4.5 0 0 0 7 0M9 9.5h.01M15 9.5h.01"/></svg><span>Обо мне</span></a>
+      <a href="#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span>Контакты</span></a>
+      <a href="https://disk.yandex.ru/i/7keF1odNrpCmqg" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Резюме</span></a>
+    </nav>
+    <a class="mailbtn" href="#contact" aria-label="Написать"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+  </header>
+
+  <!-- HOME -->
+  <main id="view-home">
+    <section class="hero">
+      <div class="hello"><div class="eyes" id="eyes" aria-hidden="true"><span class="eye"><i></i></span><span class="eye"><i></i></span></div><span>Привет, я Татьяна</span></div>
+      <h1><span class="wave" id="wave">Разбираю сложное,</span><span class="it">проектирую понятное</span></h1>
+      <div class="side">
+        <p>Продуктовый дизайнер. Проектирую B2B-платформы, админки с ролями и правами и мобильные приложения.</p>
+        <div class="acts">
+          <a class="btn" href="#contact">Связаться</a>
+        </div>
+      </div>
+      <div class="skills">
+        <span class="chip">B2B и админки</span><span class="chip">Мобильные приложения</span><span class="chip">Аудит и редизайн</span><span class="chip">Состояния экранов</span><span class="chip">Figma Variables · Auto Layout</span>
+      </div>
+    </section>
+
+    <section class="cases" id="work" aria-label="Кейсы">
+      <div class="cases-head"><span class="label">Избранные кейсы</span><span class="label tnum">04</span></div>
+      <div class="grid">
+        <a class="card" href="#padel">
+          <div class="cover">
+            <img src="img/cover-padel.jpg" alt="Экраны приложения клуба падел-тенниса: главная, бронирование, история броней" width="1600" height="1000">
+            <span class="hover">Смотреть кейс →</span>
+          </div>
+          <div class="info">
+            <div><h3>Бронирование корта за один проход</h3><div class="tags"><span class="chip">Mobile</span><span class="chip">Редизайн</span></div><p>Редизайн приложения клуба падел-тенниса: корт, тренер и инвентарь в одной брони, перенос и отмена без звонка в клуб.</p></div>
+          </div>
+        </a>
+
+        <a class="card" href="#museum">
+          <div class="cover">
+            <img src="img/cover-museum.jpg" alt="Админка каталога: карточка коллекции с типами единиц хранения и атрибутами" width="1600" height="1000" loading="lazy">
+            <span class="badge">NDA</span>
+            <span class="hover">Смотреть кейс →</span>
+          </div>
+          <div class="info">
+            <div><h3>Каталог музейного фонда</h3><div class="tags"><span class="chip">Web · B2B</span><span class="chip">NDA</span></div><p>Публичный поиск по фонду и админка, где сотрудники управляют фондами, коллекциями и атрибутами.</p></div>
+          </div>
+        </a>
+
+        <a class="card" href="#monitoring">
+          <div class="cover">
+            <img src="img/cover-monitoring.jpg" alt="Конструктор экспертных правил: блок вычислений с ошибкой в одной из переменных" width="1600" height="1000" loading="lazy">
+            <span class="badge">NDA</span>
+            <span class="hover">Смотреть кейс →</span>
+          </div>
+          <div class="info">
+            <div><h3>Конструктор экспертных правил</h3><div class="tags"><span class="chip">Web · B2B</span><span class="chip">NDA</span></div><p>Платформа мониторинга промышленного оборудования: эксперты сами собирают правила диагностики из параметров, вычислений и условий.</p></div>
+          </div>
+        </a>
+
+        <a class="card" href="#diary">
+          <div class="cover">
+            <img src="img/cover-diary.jpg" alt="Фрагмент CJM дневника питания: этапы пути и кривая эмоций" width="1600" height="1000" loading="lazy">
+            <span class="badge">В работе</span>
+            <span class="hover">Смотреть кейс →</span>
+          </div>
+          <div class="info">
+            <div><h3>Дневник питания без подсчёта калорий</h3><div class="tags"><span class="chip">Mobile</span><span class="chip">Исследование · MVP</span></div><p>Фото и голос вместо цифр, эмоции рядом с приёмами пищи. Интервью, CJM, гипотезы, приоритизация и архитектура MVP.</p></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="sec-home" id="about">
+      <h2>Обо мне</h2>
+      <div class="about-body">
+        <p><strong>Я штатный UX/UI-дизайнер и веду несколько продуктов одновременно.</strong> Лучше всего мне даются задачи, где много данных, ролей и состояний. В таких интерфейсах хорошую структуру видно сразу: человек быстро находит нужное.</p>
+        <p>Начинала с мобильных приложений для людей с астмой и диабетом: напоминания о лекарствах, дневник сахара, аналитика показателей. Там я поняла: человек должен понимать, что происходит, даже когда что-то пошло не так. С тех пор пустые состояния и ошибки для меня так же важны, как главный экран.</p>
+        <p>Сейчас прохожу курс «Продуктовый дизайнер» в Университете SOVA. Ищу команду, которая делает сложный B2B-продукт.</p>
+      </div>
+    </section>
+
+
+    <section class="foot" id="contact">
+      <h2>Давайте <span class="it">познакомимся</span></h2>
+      <div class="links">
+        <span class="mail tnum" id="mail">fominikh.tat@gmail.com</span>
+        <button class="btn" type="button" id="copy">Скопировать почту</button><span class="sr" id="copy-status" role="status" aria-live="polite"></span>
+        <a class="btn ghost" href="https://t.me/Tatyana_Rapanovich" target="_blank" rel="noopener">Telegram ↗</a>
+        <a class="btn ghost" href="https://disk.yandex.ru/i/7keF1odNrpCmqg" target="_blank" rel="noopener">Резюме ↗</a>
+      </div>
+      <div class="meta"><span>Томск, работаю удалённо</span><span class="tnum" id="clock">Местное время —</span></div>
+    </section>
+  </main>
+
+  <!-- CASE: PADEL -->
+  <main id="view-padel" hidden>
+    <section class="case-head">
+      <a class="back" href="#work">← Все кейсы</a>
+      <span class="label">Мобильное приложение · Редизайн · iOS и Android</span>
+      <h1>Бронирование корта за <span class="it">один проход</span></h1>
+      <p class="lead">Клуб падел-тенниса уже работал со своим приложением, но забронировать корт с тренером и инвентарём было сложно. Я провела аудит и пересобрала три сценария: бронирование, управление бронями и запись на мероприятия. Новая версия вышла в App Store и Google Play.</p>
+      <div class="meta4">
+        <div><span class="label">Роль</span><span>Дизайнер</span></div>
+        <div><span class="label">Платформы</span><span>iOS и Android</span></div>
+        <div><span class="label">Задачи</span><span>Аудит, сценарии, UI, состояния</span></div>
+        <div><span class="label">Команда</span><span>Менеджер, мобильный и бэкенд-разработчики, тестировщик</span></div>
+      </div>
+      <div class="figs">
+        <div><b class="tnum">13 → 6</b><span>кликов до брони с тренером и инвентарём</span></div>
+        <div><b class="tnum">18 → 4</b><span>пункта меню → раздела навигации</span></div>
+        <div><b class="tnum">14</b><span>проблем нашла в аудите</span></div>
+      </div>
+      <div class="nda" role="note"><span aria-hidden="true">●</span><p><b>Клиент обезличен.</b> Логотип, названия, имена и фото тренеров скрыты. Цвета и шрифты — клиента. Сами экраны настоящие, из итогового макета.</p></div>
+    </section>
+
+    <div class="case">
+      <nav class="rail" aria-label="Содержание кейса">
+        <span class="label">Содержание</span>
+        <a href="#p-task" data-spy>Задача</a>
+        <a href="#p-audit" data-spy>Аудит</a>
+        <a href="#p-solutions" data-spy>Решения</a>
+        <a href="#p-states" data-spy>Состояния</a>
+        <a href="#p-result" data-spy>Результат</a>
+        <a href="#p-lessons" data-spy>Что бы сделала иначе</a>
+      </nav>
+
+      <div class="content">
+        <section class="block" id="p-task">
+          <span class="label">Задача</span>
+          <h2>Сделать главное действие главным</h2>
+          <p>У приложения три задачи: <strong>арендовать корт</strong>, <strong>записаться на тренировку или турнир</strong> и <strong>управлять своими бронями</strong>. На деле к ним вели дублирующиеся кнопки, боковое меню на 18 пунктов и отдельные процессы для корта, тренера и инвентаря.</p>
+          <div class="ba">
+            <figure class="shot">
+              <span class="chip">До</span>
+              <img src="img/old_home.png" alt="Старая главная: крупный круг загруженности клуба вытесняет кнопки бронирования вниз" width="396" height="700">
+              <span class="blur-note" tabindex="0" data-tip="Название клуба и вывески на фото скрыты по договорённости с клиентом">Почему размыто?</span>
+              <figcaption>Круг загруженности стоит в центре экрана, а «Аренда корта» уходит вниз.</figcaption>
+            </figure>
+            <figure class="shot">
+              <span class="chip">После</span>
+              <img src="img/home.png" alt="Новая главная: расписание кортов на сегодня со свободными слотами" width="402" height="930">
+              <span class="blur-note" tabindex="0" data-tip="Логотип клуба и брендинг на фото корта скрыты по договорённости с клиентом">Почему размыто?</span>
+              <figcaption>Первым идёт расписание на сегодня: свободные слоты видны сразу, загруженность понятна без отдельного виджета.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="block" id="p-audit">
+          <span class="label">Аудит</span>
+          <h2>14 проблем в пяти разделах</h2>
+          <p>Я прошла приложение на iOS и Android: карточка клуба, расписание, бронирование, авторизация, личный кабинет. Для каждого замечания записала, почему оно мешает, как эту задачу решают другие приложения для падела и что предлагаю я. Несколько примеров:</p>
+          <div class="audit">
+            <table>
+              <thead><tr><th style="width:44%">Что мешало</th><th>Что предложила</th></tr></thead>
+              <tbody>
+                <tr><td><span class="plat">Android</span>Крупный блок «Текущая загруженность» в центре главной вытесняет кнопки «Расписание» и «Аренда корта»</td><td>Отдать приоритет бронированию. Загруженность видна по свободным слотам в расписании</td></tr>
+                <tr><td>В процессе аренды корта нельзя взять инвентарь</td><td>Один сценарий: корт, тренер и инвентарь как шаги одной брони</td></tr>
+                <tr><td>Фильтр «Утро / День / Вечер» без расшифровки, какие это часы</td><td>Показывать сами временные интервалы</td></tr>
+                <tr><td><span class="plat">iOS</span>Три кнопки на главной ведут на один экран «Расписание»</td><td>Одна точка входа, турниры и тренировки — в разных разделах</td></tr>
+                <tr><td><span class="plat">Android</span>Боковое меню на 18 пунктов</td><td>Нижняя навигация на 4 раздела, «Мои тренировки» и «Моя аренда» — в профиле</td></tr>
+                <tr><td>Прошедшие события показываются как «Список пуст» с грустным смайликом</td><td>Сохранять историю и показывать прошедшее в неактивном виде</td></tr>
+                <tr><td>Вход только через WhatsApp, и код не приходит</td><td>Вход по телефону или почте с паролем и восстановлением доступа</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Как было</h3>
+          <div class="carousel" role="list" aria-label="Экраны старой версии">
+            <figure class="shot" role="listitem"><img src="img/old_menu.png" alt="Старое боковое меню с длинным списком пунктов" width="480" height="850" loading="lazy"><span class="blur-note" tabindex="0" data-tip="Название клуба скрыто по договорённости с клиентом">Почему скрыто?</span><figcaption>Длинное боковое меню: «Аренда корта», «Моя аренда» и «Мои тренировки» разнесены по разным пунктам</figcaption></figure>
+            <figure class="shot" role="listitem"><img src="img/old_courts.png" alt="Старый список кортов: цена, вместимость и площадь" width="480" height="866" loading="lazy"><figcaption>Список кортов без фото и свободного времени: чтобы найти слот, нужно открыть корт</figcaption></figure>
+            <figure class="shot" role="listitem"><img src="img/old_form.png" alt="Старая пустая форма аренды корта" width="480" height="855" loading="lazy"><span class="blur-note" tabindex="0" data-tip="Название клуба скрыто по договорённости с клиентом">Почему скрыто?</span><figcaption>Форма аренды: зал, услуга и время выбираются по отдельности, тренера и инвентаря нет</figcaption></figure>
+            <figure class="shot" role="listitem"><img src="img/old_summary.png" alt="Старый итог брони: корт, услуга и время" width="480" height="848" loading="lazy"><span class="blur-note" tabindex="0" data-tip="Название клуба скрыто по договорённости с клиентом">Почему скрыто?</span><figcaption>Итог брони: только корт и время, сумма спрятана за «Подробнее»</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="block" id="p-solutions">
+          <span class="label">Решения</span>
+          <h2>Три главных решения</h2>
+
+          <div class="dec">
+            <div class="txt">
+              <h3>Вся бронь на одном экране</h3>
+              <p>Раньше корт, тренер и инвентарь бронировались отдельно. Теперь это один экран, который собирается сверху вниз: дата, интервалы, корт, тип тренировки, тренер под каждый слот и оборудование.</p>
+              <ul>
+                <li>Можно выбрать несколько интервалов подряд без повторного захода в расписание</li>
+                <li>Тренер подбирается под конкретный слот, а не на всю бронь</li>
+                <li>Итог разложен по строкам: видно, из чего складывается сумма</li>
+              </ul>
+            </div>
+            <figure class="shot"><img src="img/booking.png" alt="Экран бронирования: даты, интервалы, корт, тип тренировки, тренер, инвентарь и итог" width="402" height="1809" loading="lazy"></figure>
+          </div>
+
+          <div class="dec">
+            <div class="txt">
+              <h3>Управление бронью без звонка в клуб</h3>
+              <p>Отменить или перенести бронь раньше можно было только через администратора. Я добавила историю броней со статусами, а отмену и перенос пользователь теперь делает сам.</p>
+              <ul>
+                <li>Статусы читаются сразу: ожидает оплаты, подтверждено, оплачено, отменена</li>
+                <li>Отмена с причиной, чтобы клуб понимал, почему люди отказываются</li>
+                <li>Перенос пересчитывает стоимость и заранее предупреждает о разнице</li>
+              </ul>
+            </div>
+            <div class="pair">
+              <figure class="shot"><img src="img/history.png" alt="История посещений со статусами броней" width="402" height="874" loading="lazy"></figure>
+              <figure class="shot"><img src="img/order.png" alt="Карточка брони с кнопками Оплатить и Отменить бронь" width="402" height="874" loading="lazy"></figure>
+            </div>
+          </div>
+
+          <div class="dec">
+            <div class="txt">
+              <h3>Турниры и занятия отдельно от аренды</h3>
+              <p>В старой версии турниры и тренировки лежали в одном списке. Мероприятия получили свой раздел и понятные состояния карточки.</p>
+              <ul>
+                <li>Цветовая метка отличает турнир от группового занятия</li>
+                <li>Количество мест видно до записи</li>
+                <li>Отдельные состояния «Нет мест» и «Запись только офлайн»</li>
+              </ul>
+            </div>
+            <figure class="shot"><img src="img/events.png" alt="Раздел Мероприятия с турнирами и групповыми занятиями" width="402" height="1038" loading="lazy"></figure>
+          </div>
+        </section>
+
+        <section class="block" id="p-states">
+          <span class="label">Состояния</span>
+          <h2>Каждый сценарий доведён до конца</h2>
+          <p>Для разработки я описала состояния экранов: пустые, промежуточные, ошибки, подтверждения. В макете больше 100 экранов и состояний. Перенос брони, например, заканчивается понятным ответом: цена изменилась, разницу вернёт менеджер, заявку можно найти в «Обратной связи».</p>
+          <div class="carousel" role="list" aria-label="Состояния экранов">
+            <figure class="shot" role="listitem"><img src="img/transfer.png" alt="Перенос брони с новой стоимостью и предупреждением" width="402" height="1892" loading="lazy"><figcaption>Перенос: новая стоимость и предупреждение о разнице</figcaption></figure>
+            <figure class="shot" role="listitem"><img src="img/sent.png" alt="Заявка на перенос отправлена" width="402" height="822" loading="lazy"><figcaption>Заявка отправлена и видна в «Обратной связи»</figcaption></figure>
+            <figure class="shot" role="listitem"><img src="img/cancel.png" alt="Отмена брони с полем для причины" width="402" height="874" loading="lazy"><figcaption>Отмена брони с причиной</figcaption></figure>
+            <figure class="shot" role="listitem"><img src="img/profile.png" alt="Профиль нового пользователя без броней" width="402" height="975" loading="lazy"><figcaption>Пустой профиль ведёт к первой брони</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="block" id="p-result">
+          <span class="label">Результат</span>
+          <h2>Что изменилось</h2>
+          <div class="results">
+            <div class="res"><b>13 кликов → 6</b><p>Корт, тренер и инвентарь оформляются на одном экране, без переходов между разделами.</p></div>
+            <div class="res"><b>Брони в руках пользователя</b><p>Перенос и отмена делаются в приложении, без звонка администратору. Версия уже в сторах.</p></div>
+            <div class="res"><b>Основа для дизайн-системы</b><p>Единая семантика цвета для статусов и общие компоненты вместо разрозненных экранов.</p></div>
+          </div>
+        </section>
+
+        <section class="block" id="p-lessons">
+          <span class="label">Что бы сделала иначе</span>
+          <h2>Договорилась бы о метриках до старта</h2>
+          <p>Раньше договорилась бы с командой о метриках. Тогда эффект редизайна можно было бы показать не только числом кликов, но и конверсией в бронь до и после.</p>
+        </section>
+      </div>
+    </div>
+
+    <section class="next">
+      <div style="display:grid;gap:16px">
+        <span class="label">Следующий кейс</span>
+        <h2>Конструктор <span class="it">экспертных правил</span></h2>
+        <p style="color:var(--muted);max-width:44ch">B2B-платформа мониторинга оборудования: правила диагностики без программиста.</p>
+        <div><a class="btn ghost" href="#work">← Все кейсы</a></div>
+      </div>
+      <a class="card" href="#monitoring">
+        <div class="cover"><img src="img/cover-monitoring.jpg" alt="Конструктор экспертных правил" width="1600" height="1000" loading="lazy"><span class="hover">Смотреть кейс →</span></div>
+      </a>
+    </section>
+  </main>
+  <!-- CASE: MONITORING -->
+  <main id="view-monitoring" hidden>
+    <section class="case-head">
+      <a class="back" href="#work">← Все кейсы</a>
+      <span class="label">Web · B2B · Промышленность</span>
+      <h1>Конструктор <span class="it">экспертных правил</span></h1>
+      <p class="lead">Платформа мониторинга промышленного оборудования для инженеров и диспетчеров. Экспертные правила по показаниям датчиков распознают типовые дефекты. Я спроектировала конструктор, в котором эксперт собирает такое правило сам, без программиста. Решения обсуждала с дизайн-лидом и разработчиком.</p>
+      <div class="meta4">
+        <div><span class="label">Роль</span><span>UI/UX-дизайнер в паре с дизайн-лидом</span></div>
+        <div><span class="label">Пользователи</span><span>Инженеры и диспетчеры</span></div>
+        <div><span class="label">Мои задачи</span><span>Конструктор правил, отдельные разделы, тёмная тема</span></div>
+        <div><span class="label">Продукт</span><span>Живой, развивается</span></div>
+      </div>
+      <div class="figs">
+        <div><b class="tnum">4</b><span>типа блоков, из которых собирается правило</span></div>
+        <div><b class="tnum">2</b><span>режима ввода формул: визуальный и текстовый</span></div>
+        <div><b class="tnum">3</b><span>уровня, на которых видна ошибка</span></div>
+      </div>
+      <div class="nda" role="note"><span aria-hidden="true">●</span><p><b>Проект под NDA.</b> Логотип, названия объектов, организаций и имена в тестовых правилах скрыты. Сами экраны настоящие, из макета.</p></div>
+    </section>
+
+    <div class="case">
+      <nav class="rail" aria-label="Содержание кейса">
+        <span class="label">Содержание</span>
+        <a href="#m-task" data-spy>Задача</a>
+        <a href="#m-structure" data-spy>Устройство правила</a>
+        <a href="#m-formula" data-spy>Формулы</a>
+        <a href="#m-errors" data-spy>Ошибки и проверка</a>
+        <a href="#m-dark" data-spy>Тёмная тема</a>
+        <a href="#m-result" data-spy>Результат</a>
+        <a href="#m-lessons" data-spy>Что бы сделала иначе</a>
+      </nav>
+
+      <div class="content">
+        <section class="block" id="m-task">
+          <span class="label">Задача</span>
+          <h2>Логику диагностики описывает эксперт, а не программист</h2>
+          <p>Правило связывает показания датчиков с <strong>типовым дефектом</strong>: например, пропуском охлаждающей воды или неисправностью цепей датчиков. Эти правила знают эксперты по оборудованию. В конструкторе эксперт собирает логику из параметров, вычислений и условий, проверяет её и включает на нужном оборудовании.</p>
+          <figure class="wshot">
+            <img src="img/rules_list.png" alt="Список экспертных правил с деревом организационной структуры, типовыми дефектами, статусами и кнопками проверки" width="1800" height="1009" loading="lazy">
+            <span class="blur-note" tabindex="0" data-tip="Названия объектов, организаций и имена авторов тестовых правил скрыты: проект под NDA">Почему размыто?</span>
+            <figcaption>Список правил. Слева организационная структура до конкретного агрегата. У каждого правила виден типовой дефект, статус включения и кнопка «Проверить». Правило с ошибкой помечено иконкой с подсказкой.</figcaption>
+          </figure>
+        </section>
+
+        <section class="block" id="m-structure">
+          <span class="label">Устройство правила</span>
+          <h2>Правило как цепочка блоков</h2>
+          <p>Правило читается сверху вниз, как алгоритм. Сначала <strong>маппинг</strong> связывает переменные правила с параметрами конкретного актива. Дальше идут блоки: <strong>вычисления</strong>, <strong>ветвление</strong>, <strong>действие</strong> (отправить событие или записать в базу) и <strong>переназначение переменных</strong>. Слева дерево блоков, справа содержимое выбранного блока. В шапке всегда видно, к какой организации и активу относится правило.</p>
+          <figure class="wshot">
+            <img src="img/rules_mapping.png" alt="Редактор правила: дерево блоков слева, таблица маппинга параметров справа" width="1800" height="964" loading="lazy">
+            <span class="blur-note" tabindex="0" data-tip="Названия объектов скрыты: проект под NDA">Почему размыто?</span>
+            <figcaption>Маппинг параметров: какой параметр актива попадает в какую переменную правила.</figcaption>
+          </figure>
+          <figure class="wshot">
+            <img src="img/rules_blocks.png" alt="Выбор нового блока: вычисления, ветвление, действие, переназначение переменных" width="1800" height="994" loading="lazy">
+            <figcaption>«Добавить блок» показывает все четыре типа сразу. У блока действия два варианта, поэтому кнопки выбора стоят прямо в карточке.</figcaption>
+          </figure>
+        </section>
+
+        <section class="block" id="m-formula">
+          <span class="label">Формулы</span>
+          <h2>Два способа написать формулу</h2>
+          <p>Эксперты по-разному привыкли работать с формулами. Поэтому я предложила два режима в окне «Вычислить переменную», между которыми можно переключаться.</p>
+          <div class="mpair">
+            <figure class="shot"><img src="img/modal_visual.png" alt="Визуальный режим: выражение из чипов, вкладки Литерал, Переменная, Формула" width="1282" height="2163" loading="lazy"><figcaption><strong>Визуальный.</strong> Выражение собирается из чипов: число, переменная или функция вставляются кнопкой, без риска опечатки.</figcaption></figure>
+            <figure class="shot"><img src="img/modal_text.png" alt="Текстовый режим с подсказками: параметры, переменные, функции с описанием и примером" width="1282" height="2162" loading="lazy"><figcaption><strong>Текстовый.</strong> Для тех, кто пишет быстрее руками: подсказки сгруппированы по параметрам, переменным и функциям, у функции есть описание и пример.</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="block" id="m-errors">
+          <span class="label">Ошибки и проверка</span>
+          <h2>Ошибку видно, не открывая каждый блок</h2>
+          <p>В правиле бывают десятки переменных, и одна ошибка ломает всё правило. Поэтому ошибка поднимается наверх: строка подсвечивается в таблице, иконка появляется у блока в дереве и у самого правила в общем списке. Перед включением правило можно <strong>проверить на выбранную дату</strong>, а действия, которые сотрут введённое, просят подтверждения.</p>
+          <figure class="wshot">
+            <img src="img/rules_calc.png" alt="Блок вычислений: переменная с ошибкой подсвечена красным в таблице и в дереве блоков" width="1800" height="1011" loading="lazy">
+            <figcaption>Ошибка в переменной видна сразу в двух местах: в строке таблицы и в дереве блоков слева.</figcaption>
+          </figure>
+          <div class="mpair">
+            <figure class="shot"><img src="img/modal_check.png" alt="Окно Проверить правило с выбором даты и времени" width="843" height="530" loading="lazy"><figcaption>Проверка правила на данных за выбранный момент.</figcaption></figure>
+            <figure class="shot"><img src="img/modal_confirm.png" alt="Подтверждение смены типа параметра: введённое выражение удалится" width="801" height="443" loading="lazy"><figcaption>Смена типа параметра удаляет выражение, поэтому сначала окно предупреждает об этом.</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="block" id="m-dark">
+          <span class="label">Тёмная тема</span>
+          <h2>Вторая тема на тех же токенах</h2>
+          <p>Дизайн-систему с нуля собрал другой дизайнер команды. Я сделала её <strong>тёмную версию</strong>: вторую моду семантических токенов в Figma Variables. Компоненты и экраны переключаются между темами без отдельных макетов.</p>
+        </section>
+
+        <section class="block" id="m-result">
+          <span class="label">Результат</span>
+          <h2>Что получилось</h2>
+          <div class="results">
+            <div class="res"><b>Логика без кода</b><p>Эксперт собирает правило из блоков и проверяет его сам, без программиста.</p></div>
+            <div class="res"><b>Ошибки не теряются</b><p>Проблема видна в переменной, в блоке и в списке правил одновременно.</p></div>
+            <div class="res"><b>Одна система, две темы</b><p>Тёмная тема на токенах без дублирования макетов.</p></div>
+          </div>
+        </section>
+
+        <section class="block" id="m-lessons">
+          <span class="label">Что бы сделала иначе</span>
+          <h2>Проверила бы, какой режим формул выбирают</h2>
+          <p>Посмотрела бы, каким режимом формул эксперты пользуются чаще: визуальным или текстовым. Самый популярный можно было бы открывать по умолчанию, а второй оставить переключателем.</p>
+        </section>
+      </div>
+    </div>
+
+    <section class="next">
+      <div style="display:grid;gap:16px">
+        <span class="label">Следующий кейс</span>
+        <h2>Каталог <span class="it">музейного фонда</span></h2>
+        <p style="color:var(--muted);max-width:44ch">Публичный поиск по фонду и админка для сотрудников.</p>
+        <div><a class="btn ghost" href="#work">← Все кейсы</a></div>
+      </div>
+      <a class="card" href="#museum">
+        <div class="cover"><img src="img/cover-museum.jpg" alt="Каталог музейного фонда" width="1600" height="1000" loading="lazy"><span class="hover">Смотреть кейс →</span></div>
+      </a>
+    </section>
+  </main>
+  <!-- CASE: MUSEUM -->
+  <main id="view-museum" hidden>
+    <section class="case-head">
+      <a class="back" href="#work">← Все кейсы</a>
+      <span class="label">Web · B2B · Публичный портал и админка</span>
+      <h1>Каталог <span class="it">музейного фонда</span></h1>
+      <p class="lead">Информационно-поисковая система архивно-библиотечного центра музея. В публичной части посетители и исследователи ищут книги, периодику, фотографии и документы фонда. В админке сотрудники управляют структурой фондов, коллекциями и атрибутами.</p>
+      <div class="meta4">
+        <div><span class="label">Роль</span><span>UI/UX-дизайнер</span></div>
+        <div><span class="label">Части</span><span>Публичный портал и админка</span></div>
+        <div><span class="label">Адаптив</span><span>1366, 768 и 360 px</span></div>
+        <div><span class="label">Статус</span><span>Запущен</span></div>
+      </div>
+      <div class="figs">
+        <div><b class="tnum">2</b><span>интерфейса: для посетителей и для сотрудников</span></div>
+        <div><b class="tnum">3</b><span>вида каталога: плитка, таблица, превью</span></div>
+        <div><b class="tnum">3</b><span>роли с разными правами в админке</span></div>
+      </div>
+      <div class="nda" role="note"><span aria-hidden="true">●</span><p><b>Проект под NDA.</b> Название и логотип музея скрыты, как и тексты, которые на него указывают. Сами экраны настоящие, из макета.</p></div>
+    </section>
+
+    <div class="case">
+      <nav class="rail" aria-label="Содержание кейса">
+        <span class="label">Содержание</span>
+        <a href="#u-task" data-spy>Задача</a>
+        <a href="#u-system" data-spy>Компоненты</a>
+        <a href="#u-search" data-spy>Поиск</a>
+        <a href="#u-filter" data-spy>Фильтры</a>
+        <a href="#u-admin" data-spy>Админка</a>
+        <a href="#u-query" data-spy>Запросы</a>
+        <a href="#u-roles" data-spy>Роли и права</a>
+        <a href="#u-status" data-spy>Статусы</a>
+        <a href="#u-result" data-spy>Результат</a>
+        <a href="#u-lessons" data-spy>Что бы сделала иначе</a>
+      </nav>
+
+      <div class="content">
+        <section class="block" id="u-task">
+          <span class="label">Задача</span>
+          <h2>Одна система для двух очень разных людей</h2>
+          <p>Посетителю нужно быстро найти материал и понять, доступен ли он. Сотруднику нужно описать фонд так, чтобы этот поиск вообще работал: завести коллекции, типы единиц хранения и атрибуты. Публичная часть и админка опираются на одну структуру данных, поэтому проектировать их нужно было вместе.</p>
+          <figure class="wshot">
+            <img src="img/mus_catalog.png" alt="Публичный каталог: быстрый поиск, сортировка, доступность и карточки материалов" width="1366" height="1076" loading="lazy">
+            <figcaption>Публичный каталог: быстрый поиск, сортировка и доступность. У каждой карточки видно тип материала и степень оцифровки, а при наведении — просмотр изображения.</figcaption>
+          </figure>
+        </section>
+
+        <section class="block" id="u-system">
+          <span class="label">Компоненты</span>
+          <h2>Сначала навести порядок</h2>
+          <p>Я пришла на проект на смену другому дизайнеру. В библиотеке компонентов был беспорядок, поэтому сначала я <strong>пересобрала компоненты</strong>, а потом <strong>прошла по всем экранам</strong> и перевела их на обновлённую библиотеку. Только после этого взялась за новые сценарии.</p>
+        </section>
+
+        <section class="block" id="u-search">
+          <span class="label">Поиск</span>
+          <h2>От одной строки до запроса с условиями</h2>
+          <p>Большинству хватает <strong>быстрого поиска по названию</strong>. Исследователям нужен <strong>расширенный</strong>: условия И/ИЛИ по атрибутам вроде автора или года, учёт морфологии и полнотекстовый поиск. Расширенный поиск раскрывается под строкой и одинаково работает во всех видах каталога, чтобы не переучиваться при смене вида.</p>
+          <figure class="wshot">
+            <img src="img/mus_search.png" alt="Расширенный поиск: строки условий с оператором, атрибутом и значением" width="1366" height="996" loading="lazy">
+            <figcaption>Каждое условие — строка «оператор · атрибут · значение». Условие добавляется и удаляется в один клик.</figcaption>
+          </figure>
+        </section>
+
+        <section class="block" id="u-filter">
+          <span class="label">Фильтры</span>
+          <h2>Фильтр в три колонки</h2>
+          <p>Атрибутов у материалов фонда много, и значения устроены по-разному: иерархические справочники, строки, линейные справочники, диапазоны лет. Поэтому фильтр разделён на три колонки: <strong>категории</strong>, <strong>значения</strong> выбранной категории и <strong>выбранное</strong>. Выбранное собирается справа сразу при вводе, а у значения из иерархии виден путь, например «Тип единицы хранения / Библиотека / Периодика».</p>
+          <figure class="wshot" style="max-width:720px">
+            <img src="img/mus_filter.png" alt="Фильтр: категории слева, значения в центре, выбранные значения справа" width="1000" height="980" loading="lazy">
+            <figcaption>Даже при десятке выбранных значений видно, что именно отфильтровано, и любое можно снять крестиком.</figcaption>
+          </figure>
+        </section>
+
+        <section class="block" id="u-admin">
+          <span class="label">Админка</span>
+          <h2>Структура фонда на одном экране</h2>
+          <p>Вместе с иерархическими справочниками этот раздел был самым сложным в проекте. Фонд делится на <strong>коллекции</strong>, коллекция — на <strong>типы единиц хранения</strong> с подтипами, а у типа есть <strong>атрибуты</strong>. Слева список фондов, справа коллекции выбранного фонда. Первый фонд выбирается сразу, поэтому экран не бывает пустым. В карточке коллекции собраны аннотация, обложка, типы и атрибуты. У каждого атрибута видно, справочник это или строка, обязателен ли он и показывается ли посетителям.</p>
+          <figure class="wshot">
+            <img src="img/mus_funds.png" alt="Управление фондами: список фондов со статусами слева и коллекции выбранного фонда справа" width="1600" height="1071" loading="lazy">
+            <span class="blur-note" tabindex="0" data-tip="Название и логотип музея скрыты: проект под NDA">Почему размыто?</span>
+            <figcaption>Фонды и коллекции рядом: статус каждого виден в списке, типы единиц хранения — тегами в строке коллекции.</figcaption>
+          </figure>
+          <figure class="wshot">
+            <img src="img/mus_collection.png" alt="Карточка коллекции: аннотация, типы единиц хранения с подтипами и атрибуты с переключателем видимости" width="1600" height="1198" loading="lazy">
+            <span class="blur-note" tabindex="0" data-tip="Логотип и аннотация, указывающая на музей, скрыты: проект под NDA">Почему размыто?</span>
+            <figcaption>Карточка коллекции. Видимость атрибута для посетителей переключается прямо в списке, без открытия редактирования.</figcaption>
+          </figure>
+        </section>
+
+        <section class="block" id="u-query">
+          <span class="label">Запросы в админке</span>
+          <h2>Запросы переехали в каталог</h2>
+          <p>Раньше сложные запросы в админке собирались на <strong>отдельной странице «Запрос»</strong>: сотрудник уходил из каталога, собирал условия и возвращался к результатам. Я перенесла фильтр <strong>прямо на страницу каталога</strong>, над таблицей единиц хранения. Теперь запрос и результаты на одном экране.</p>
+          <p>Основные поля — шифр, заглавие, коллекция и год — видны сразу. «Расширенный фильтр» добавляет блок по любому атрибуту: значение, заполненность и связь И/ИЛИ. Частый набор условий можно сохранить <strong>шаблоном</strong> и потом выбрать в один клик.</p>
+          <figure class="wshot">
+            <img src="img/mus_query.png" alt="Каталог админки с раскрытым расширенным фильтром: основные поля, блок по атрибуту Авторы, кнопки Сохранить шаблон, Сбросить фильтр и Поиск" width="1600" height="966" loading="lazy">
+            <span class="blur-note" tabindex="0" data-tip="Логотип музея скрыт: проект под NDA">Почему размыто?</span>
+            <figcaption>Фильтр над таблицей: запрос и результаты на одном экране. Пункта «Запрос» в меню больше нет.</figcaption>
+          </figure>
+          <div class="mpair">
+            <figure class="shot"><img src="img/mus_addfilter.png" alt="Список атрибутов для нового блока фильтра" width="410" height="420" loading="lazy"><figcaption>«Добавить фильтр»: блок по любому атрибуту из списка.</figcaption></figure>
+            <figure class="shot"><img src="img/mus_templates.png" alt="Список сохранённых шаблонов фильтра" width="406" height="330" loading="lazy"><figcaption>Сохранённые шаблоны частых запросов.</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="block" id="u-roles">
+          <span class="label">Роли и права</span>
+          <h2>Каждый видит то, что ему нужно</h2>
+          <p>В админке три роли. <strong>Методист</strong> создаёт и редактирует единицы хранения. <strong>Сотрудник</strong> в основном просматривает, и часть разделов ему недоступна. <strong>Суперадминистратор</strong> может всё то же, что методист, и дополнительно управляет пользователями и смотрит статистику.</p>
+          <div class="audit">
+            <table>
+              <thead><tr><th style="width:46%">Что можно делать</th><th>Сотрудник</th><th>Методист</th><th>Суперадмин</th></tr></thead>
+              <tbody>
+                <tr><td>Просматривать каталог и единицы хранения</td><td>Да</td><td>Да</td><td>Да</td></tr>
+                <tr><td>Создавать и редактировать единицы хранения</td><td>Нет</td><td>Да</td><td>Да</td></tr>
+                <tr><td>Работать во всех разделах админки</td><td>Частично</td><td>Да</td><td>Да</td></tr>
+                <tr><td>Управлять пользователями</td><td>Нет</td><td>Нет</td><td>Да</td></tr>
+                <tr><td>Смотреть статистику</td><td>Нет</td><td>Нет</td><td>Да</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="block" id="u-status">
+          <span class="label">Статусы</span>
+          <h2>Ничего не пропадает случайно</h2>
+          <p>В фонде годами копятся связи между коллекциями и единицами хранения, поэтому объекты не удаляются сразу. У них три статуса: <strong>активен</strong>, <strong>не активен</strong> и <strong>архивирован</strong>, то есть мягко удалён. Из неактивного или архивного фонда нельзя завести новые коллекции. Архивные объекты скрыты, пока не включён переключатель «Показать архивированные», и их можно восстановить. Новая коллекция по умолчанию создаётся неактивной, чтобы посетители не увидели её до заполнения.</p>
+          <figure class="wshot">
+            <img src="img/mus_archived.png" alt="Список фондов с включённым показом архивированных объектов" width="1600" height="953" loading="lazy">
+            <span class="blur-note" tabindex="0" data-tip="Название и логотип музея скрыты: проект под NDA">Почему размыто?</span>
+            <figcaption>Архивный фонд: коллекции видны, но кнопка «Добавить» недоступна.</figcaption>
+          </figure>
+          <div class="mpair" style="max-width:300px;grid-template-columns:minmax(0,1fr)">
+            <figure class="shot"><img src="img/mus_modal.png" alt="Окно добавления коллекции: название, аннотация, видимость по умолчанию Не активен" width="557" height="964" loading="lazy"><figcaption>Новая коллекция по умолчанию скрыта от посетителей.</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="block" id="u-result">
+          <span class="label">Результат</span>
+          <h2>Что получилось</h2>
+          <div class="results">
+            <div class="res"><b>Система запущена</b><p>Публичный каталог и админка работают у посетителей и сотрудников музея.</p></div>
+            <div class="res"><b>Порядок в компонентах</b><p>Библиотека пересобрана, все экраны переведены на неё.</p></div>
+            <div class="res"><b>Права по ролям</b><p>Методист, сотрудник и суперадмин видят только свои разделы и действия.</p></div>
+          </div>
+        </section>
+
+        <section class="block" id="u-lessons">
+          <span class="label">Что бы сделала иначе</span>
+          <h2>Договорилась бы о метриках поиска</h2>
+          <p>До запуска договорилась бы с командой, как измерять поиск: например, какая доля запросов заканчивается найденным материалом. Тогда можно было бы показать, насколько расширенный поиск и новый фильтр помогают посетителям и сотрудникам.</p>
+        </section>
+      </div>
+    </div>
+
+    <section class="next">
+      <div style="display:grid;gap:16px">
+        <span class="label">Следующий кейс</span>
+        <h2>Дневник питания <span class="it">без подсчёта калорий</span></h2>
+        <p style="color:var(--muted);max-width:44ch">Исследование и MVP мобильного приложения.</p>
+        <div><a class="btn ghost" href="#work">← Все кейсы</a></div>
+      </div>
+      <a class="card" href="#diary">
+        <div class="cover"><img src="img/cover-diary.jpg" alt="Дневник питания" width="1600" height="1000" loading="lazy"><span class="hover">Смотреть кейс →</span></div>
+      </a>
+    </section>
+  </main>
+  <!-- CASE: DIARY -->
+  <main id="view-diary" hidden>
+    <section class="case-head">
+      <a class="back" href="#work">← Все кейсы</a>
+      <span class="label">Mobile · Исследование · MVP</span>
+      <h1>Дневник питания <span class="it">без подсчёта калорий</span></h1>
+      <p class="lead">Проект, который я веду на курсе «Продуктовый дизайнер» в Университете SOVA и на фрилансе. Еду записывают фото, текстом или голосом, а вместо калорий приложение показывает баланс тарелки и отмечает, с какими эмоциями человек ест. Исследование и MVP готовы, интерфейс сейчас в работе.</p>
+      <div class="meta4">
+        <div><span class="label">Роль</span><span>Продуктовый дизайнер, весь цикл сама</span></div>
+        <div><span class="label">Формат</span><span>Курс SOVA и фриланс</span></div>
+        <div><span class="label">Платформа</span><span>Мобильное приложение</span></div>
+        <div><span class="label">Этап</span><span>Интерфейс в работе</span></div>
+      </div>
+      <div class="figs">
+        <div><b class="tnum">3</b><span>глубинных интервью с респондентками</span></div>
+        <div><b class="tnum">9</b><span>этапов в CJM: от решения следить до попытки вернуться</span></div>
+        <div><b class="tnum">17</b><span>функций приоритизировала для MVP</span></div>
+      </div>
+      <div class="nda" role="note"><span aria-hidden="true">●</span><p><b>Респондентки обезличены.</b> В цитатах они обозначены как Р1, Р2 и Р3.</p></div>
+    </section>
+
+    <div class="case">
+      <nav class="rail" aria-label="Содержание кейса">
+        <span class="label">Содержание</span>
+        <a href="#d-problem" data-spy>Проблема</a>
+        <a href="#d-research" data-spy>Исследование</a>
+        <a href="#d-cjm" data-spy>CJM</a>
+        <a href="#d-hyp" data-spy>Гипотезы</a>
+        <a href="#d-mvp" data-spy>MVP</a>
+        <a href="#d-ia" data-spy>Архитектура</a>
+        <a href="#d-next" data-spy>Что дальше</a>
+      </nav>
+
+      <div class="content">
+        <section class="block" id="d-problem">
+          <span class="label">Проблема</span>
+          <h2>Дневник бросают из-за самой записи</h2>
+          <p>Многие бросают счётчики калорий в первые недели, и все три респондентки это подтвердили. Причина не в мотивации, а в процессе: нужно искать продукт в базе, взвешивать порции и считать граммы. У одной из респонденток ввод обычного обеда занял <strong>около 5 минут</strong>, и она сказала: «Если каждый раз так делать, я долго не выдержу».</p>
+          <p>Я искала способ вести дневник, который не превращает человека в бухгалтера: записать еду за секунды, увидеть, чего не хватает в тарелке, и не ругать себя за срыв.</p>
+        </section>
+
+        <section class="block" id="d-research">
+          <span class="label">Исследование</span>
+          <h2>Сначала гипотезы, потом люди</h2>
+          <p>Я начала с <strong>прото-персон</strong>: например, мама в декрете, которая днём держится, а вечером заедает усталость. Затем провела <strong>три интервью</strong> с женщинами, которые вели дневник в FatSecret и Foodvisor или бросили его. После интервью обновила персоны: какие черты подтвердились, а какие пришлось поправить. Параллельно разобрала конкурентов, чтобы понять, что для пользователей уже норма рынка, а что раздражает.</p>
+        </section>
+
+        <section class="block" id="d-cjm">
+          <span class="label">CJM</span>
+          <h2>Самая глубокая яма — эмоции, а не интерфейс</h2>
+          <p>Путь пользователя я разложила на <strong>девять этапов</strong>: от решения начать следить до попытки вернуться после отказа. Кривая эмоций проваливается не на сложном интерфейсе, а на пропуске записи и срыве: там появляются стыд, самообман и желание «отработать».</p>
+          <figure class="wshot">
+            <img src="img/diary_cjm.png" alt="CJM дневника питания: девять этапов, цели, действия, цитаты, кривая эмоций, боли, возможности и связь с гипотезами" width="2000" height="1360" loading="lazy">
+            <figcaption>CJM: для каждого этапа цели, действия, точки контакта, цитаты, эмоции, боли, возможности и связь с гипотезами.</figcaption>
+          </figure>
+          <div class="results">
+            <div class="res"><b>Момент истины — время записи</b><p>Секунды на фото против 5 минут ручного ввода решают, останется ли человек в продукте.</p></div>
+            <div class="res"><b>Невидимые приёмы пищи</b><p>Перекусы на бегу и доедание за ребёнком не попадают в дневник. Нужен ввод в один тап.</p></div>
+            <div class="res"><b>Мягкий рестарт</b><p>С нутрициологом дисциплины хватало на 2 месяца, самостоятельный рестарт — меньше чем на 3 дня.</p></div>
+          </div>
+        </section>
+
+        <section class="block" id="d-hyp">
+          <span class="label">Гипотезы</span>
+          <h2>Что проверяем</h2>
+          <div class="audit">
+            <table>
+              <thead><tr><th style="width:42%">Гипотеза</th><th>Метрика</th><th>Что показали интервью</th></tr></thead>
+              <tbody>
+                <tr><td><b>Г1.</b> Фото вместо граммов и калорий удержит дольше, чем классический счётчик</td><td>Retention D30 +15% к счётчикам калорий</td><td>Подтверждено: все три респондентки называют ручной ввод главной усталостью</td></tr>
+                <tr><td><b>Г2.</b> Оценка AI как предложение, которое можно поправить, сохранит доверие к фото</td><td>+20% пользуются фото-записью через 14 дней</td><td>Р1 прощает ошибки AI, потому что правка быстрее поиска</td></tr>
+                <tr><td><b>Г3.</b> Сложные блюда вроде борща и плова требуют отдельного сценария</td><td>Проверяется вместе с Г2</td><td>На сложных блюдах исправлять нечего: AI не даёт результата</td></tr>
+                <tr><td><b>Новые из CJM:</b> экстренный режим, безоценочная запись срыва, мягкий совет вместо компенсации</td><td>Доля дней с записью</td><td>Выросли из этапов «Пропуск» и «Стыд и компенсация»</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="block" id="d-mvp">
+          <span class="label">MVP</span>
+          <h2>17 функций, четыре способа отбора</h2>
+          <p>Из CJM я собрала Job Stories и User Stories и разложила их по <strong>Story Map</strong> вдоль этапов пути. Чтобы провести линию MVP, прогнала функции через <strong>Impact / Effort</strong>, <strong>RICE</strong>, <strong>Kano</strong> и <strong>MoSCoW</strong>. Быстрые победы — фото с текстом или голосом, экстренный режим, тег эмоции, запись без регистрации — идут первыми. Ядро продукта и главный риск — AI-распознавание, точечная правка и итог дня.</p>
+          <p>В MVP сознательно не вошли калории, граммы и КБЖУ на экранах, стрики и экраны «вы пропустили 14 дней», поиск по базе продуктов и пейволл.</p>
+          <figure class="wshot">
+            <img src="img/diary_storymap.png" alt="Story Map дневника питания: этапы CJM, истории Must, Should и Could, линия MVP" width="2000" height="785" loading="lazy">
+            <figcaption>Story Map: над красной линией то, без чего продукт не живёт.</figcaption>
+          </figure>
+          <figure class="wshot" style="max-width:760px">
+            <img src="img/diary_impact.png" alt="Матрица Impact / Effort: 17 функций в четырёх квадрантах и выводы" width="1400" height="1142" loading="lazy">
+            <figcaption>Impact / Effort: быстрые победы, большие ставки, пожиратели времени и «добить позже».</figcaption>
+          </figure>
+        </section>
+
+        <section class="block" id="d-ia">
+          <span class="label">Архитектура</span>
+          <h2>Слова респонденток вместо терминов</h2>
+          <p>Информационную архитектуру я собрала из объектов (OOUX): <strong>запись</strong>, <strong>ингредиент</strong>, <strong>эмоция</strong>, <strong>итог дня</strong> и <strong>моё блюдо</strong>. В таб-баре четыре пункта: «Сегодня», «Записать» центральной кнопкой, «Дневник» и «Профиль». Названия я брала из интервью: «Записать», а не «Зарегистрировать еду»; «Итог дня», а не «Анализ», который звучит как экзамен; «Овощи · Белок · Гарнир», а не «клетчатка и углеводы», потому что люди думают тарелкой, а не нутриентами.</p>
+          <div class="audit" style="padding:12px;background:var(--surface)"><img src="img/diary_ia.png" alt="Карта приложения: первый запуск, Сегодня, Записать, Дневник, Профиль; функции MVP, релиза 1.1 и после MVP" width="2000" height="498" loading="lazy" style="display:block;min-width:900px;width:100%;height:auto"></div>
+          <p style="font-size:var(--t-s)">Карта приложения. Пунктиром отмечено то, что выйдет в релизе 1.1 и после MVP. Прокрутите вбок.</p>
+        </section>
+
+        <section class="block" id="d-next">
+          <span class="label">Что дальше</span>
+          <h2>Интерфейс и проверка</h2>
+          <div class="results">
+            <div class="res"><b>Интерфейс</b><p>Проектирую экраны MVP по Story Map, начиная с записи по фото и правки распознавания.</p></div>
+            <div class="res"><b>Проверка нейминга</b><p>Закрытая карточная сортировка или тест первого клика на 5–7 людях до финального дизайна.</p></div>
+            <div class="res"><b>Метрики гипотез</b><p>Доля дней с записью и доля принятых или исправленных распознаваний.</p></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <section class="next">
+      <div style="display:grid;gap:16px">
+        <span class="label">Следующий кейс</span>
+        <h2>Бронирование корта за <span class="it">один проход</span></h2>
+        <p style="color:var(--muted);max-width:44ch">Редизайн приложения клуба падел-тенниса.</p>
+        <div><a class="btn ghost" href="#work">← Все кейсы</a></div>
+      </div>
+      <a class="card" href="#padel">
+        <div class="cover"><img src="img/cover-padel.jpg" alt="Бронирование корта" width="1600" height="1000" loading="lazy"><span class="hover">Смотреть кейс →</span></div>
+      </a>
+    </section>
+  </main>
+</div>
+
+<script>
+(function(){
+  // a11y: page language, scrollable regions reachable by keyboard, tooltips readable by screen readers
+  document.documentElement.lang='ru';
+  [].forEach.call(document.querySelectorAll('.carousel,.audit'),function(el){
+    el.tabIndex=0; if(!el.getAttribute('aria-label')) el.setAttribute('aria-label',el.querySelector('table')?'Таблица, прокручивается вбок':'Схема, прокручивается вбок');});
+  [].forEach.call(document.querySelectorAll('.blur-note'),function(n){
+    n.setAttribute('aria-label',n.textContent.trim()+' '+n.getAttribute('data-tip'));});
+  var home=document.getElementById('view-home'), prog=document.getElementById('progress');
+  var views={padel:document.getElementById('view-padel'),monitoring:document.getElementById('view-monitoring'),museum:document.getElementById('view-museum'),diary:document.getElementById('view-diary')};
+  var all=[home,views.padel,views.monitoring,views.museum,views.diary], current=home;
+
+  function route(){
+    var h=location.hash.replace('#','');
+    var el=h?document.getElementById(h):null;
+    var view=views[h]||(el&&el.closest('main'))||home;
+    var changed=view!==current;
+    all.forEach(function(v){v.hidden=v!==view;});
+    current=view; prog.hidden=view===home;
+    if(changed&&view!==home){var t=view.querySelector('h1'); if(t){t.tabIndex=-1; t.focus({preventScroll:true});}}
+    if(views[h]||(!el&&view===home)) window.scrollTo(0,0);
+    else if(el){ if(changed) window.scrollTo(0,0); el.scrollIntoView(); }
+    onScroll();
+  }
+  window.addEventListener('hashchange',route);
+
+  // progress + section spy
+  var bar=prog.querySelector('i');
+  function onScroll(){
+    if(current===home) return;
+    var max=document.documentElement.scrollHeight-innerHeight;
+    bar.style.transform='scaleX('+(max>0?Math.min(1,scrollY/max):0)+')';
+    var cur=null, links=[].slice.call(current.querySelectorAll('[data-spy]'));
+    links.forEach(function(a){var s=document.getElementById(a.getAttribute('href').slice(1)); if(s&&s.getBoundingClientRect().top<innerHeight*0.35) cur=a;});
+    links.forEach(function(a){a.classList.toggle('on',a===cur);});
+  }
+  addEventListener('scroll',onScroll,{passive:true});
+
+  // hero: letter weight follows the cursor
+  var wave=document.getElementById('wave');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(wave&&!reduce&&matchMedia('(hover:hover)').matches){
+    var txt=wave.textContent; wave.textContent='';
+    var srt=document.createElement('span'); srt.className='sr'; srt.textContent=txt; wave.parentNode.insertBefore(srt,wave); wave.setAttribute('aria-hidden','true');
+    txt.split(' ').forEach(function(word,wi,arr){
+      var w=document.createElement('span'); w.style.display='inline-block'; w.style.whiteSpace='nowrap';
+      word.split('').forEach(function(ch){var s=document.createElement('span'); s.textContent=ch; w.appendChild(s);});
+      wave.appendChild(w); if(wi<arr.length-1) wave.appendChild(document.createTextNode(' '));
+    });
+    var letters=[].slice.call(wave.querySelectorAll('span span'));
+    wave.parentNode.addEventListener('mousemove',function(e){
+      letters.forEach(function(s){var r=s.getBoundingClientRect(); var d=Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2));
+        var k=Math.max(0,1-d/140); s.style.fontWeight=Math.round(420+360*k);});
+    });
+    wave.parentNode.addEventListener('mouseleave',function(){letters.forEach(function(s){s.style.fontWeight='';});});
+  }
+
+  // eyes follow the cursor
+  var eyes=[].slice.call(document.querySelectorAll('#eyes .eye'));
+  if(eyes.length){
+    var moveEyes=function(x,y){eyes.forEach(function(e){var r=e.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+      var a=Math.atan2(y-cy,x-cx),d=Math.min(1,Math.hypot(x-cx,y-cy)/220);
+      e.firstChild.style.transform='translate('+(Math.cos(a)*8*d).toFixed(1)+'px,'+(Math.sin(a)*11*d).toFixed(1)+'px)';});};
+    addEventListener('pointermove',function(ev){if(!home.hidden) moveEyes(ev.clientX,ev.clientY);},{passive:true});
+    if(!reduce){setInterval(function(){if(home.hidden||document.hidden) return; eyes.forEach(function(e){e.classList.add('blink');}); setTimeout(function(){eyes.forEach(function(e){e.classList.remove('blink');});},140);},4200);}
+  }
+
+  // copy email
+  var copy=document.getElementById('copy'), mail=document.getElementById('mail');
+  copy.addEventListener('click',function(){
+    var done=function(){copy.textContent='Почта скопирована'; var st=document.getElementById('copy-status'); if(st){st.textContent='';setTimeout(function(){st.textContent='Почта скопирована';},50);} setTimeout(function(){copy.textContent='Скопировать почту';},2000);};
+    var fallback=function(){var r=document.createRange(); r.selectNodeContents(mail); var sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); copy.textContent='Выделено — нажмите ⌘C / Ctrl+C';};
+    try{navigator.clipboard.writeText(mail.textContent).then(done,fallback);}catch(e){fallback();}
+  });
+
+  // local time in Tomsk
+  var clock=document.getElementById('clock');
+  function tick(){try{clock.textContent='Местное время '+new Intl.DateTimeFormat('ru-RU',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Tomsk'}).format(new Date());}catch(e){}}
+  tick(); setInterval(tick,30000);
+
+  route();
+})();
+</script>
+
+</body></html>
